@@ -87,8 +87,8 @@ def recuperer_classique():
     billets.append(
         {
             "source": "Ticketmaster",
-            "section": "Disponible",
-            "prix": 0,
+            "section": "Disponibilité détectée",
+            "prix": "Voir Ticketmaster",
             "places": 1,
             "url": CLASSIQUE_URL
         }
