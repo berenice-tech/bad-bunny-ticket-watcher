@@ -1,7 +1,7 @@
 from config import VIP_MAX_PRICE, VIP_PACKAGES_INTERESSANTS
 
 
-def score_vip(package, price):
+def score_ticket(source, section, prix):
     """
     Analyse un package VIP selon :
     - le type de package
