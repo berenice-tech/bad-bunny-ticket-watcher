@@ -16,5 +16,8 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Installer dépendances
+        run: pip install requests
+
       - name: Tester VIP Ticketmaster
         run: python test_ticketmaster_vip.py
