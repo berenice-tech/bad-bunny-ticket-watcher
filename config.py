@@ -30,8 +30,10 @@ ALERT_LEVELS = {
     "yellow": "Bonne opportunité",
     "red": "Surveillance secondaire",
 }
-TICKETMASTER_EVENT_ID = "Z698xZG2Z16v79kZ04"
 
+# Identifiants Ticketmaster
+TICKETMASTER_EVENT_ID = "Z698xZG2Z16v79kZ04"
 TICKETMASTER_VIP_EVENT_ID = "Z698xZG2Z16vGyuk_A"
 
-VIP_MAX_PRICE = 250
+# Règle spéciale VIP
+VIP_MAX_PRICE = 250IP_MAX_PRICE = 250
