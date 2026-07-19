@@ -30,7 +30,7 @@ def lancer_surveillance():
 
         else:
 
-            analyse = score_ticket(
+            analyse = score_classique(
                 ticket["source"],
                 ticket["section"],
                 ticket["prix"]
