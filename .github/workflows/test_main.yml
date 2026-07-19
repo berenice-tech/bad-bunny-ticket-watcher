@@ -16,7 +16,6 @@ jobs:
         with:
           python-version: "3.12"
 
-      
 - name: Installer dépendances
   run: pip install requests beautifulsoup4
 
