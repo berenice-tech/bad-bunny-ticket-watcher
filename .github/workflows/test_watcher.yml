@@ -1,2 +1,2 @@
-- name: Tester watcher
+ name: Tester watcher
   run: python test_watcher.py
