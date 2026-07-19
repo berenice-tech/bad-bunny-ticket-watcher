@@ -1,4 +1,5 @@
 from watcher import traiter_ticket
+from ticketmaster_vip_live import recuperer_vip
 from datetime import datetime
 
 
@@ -7,18 +8,7 @@ def lancer_surveillance():
     print("🎟️ Bad Bunny Ticket Watcher démarré")
     print("Vérification :", datetime.now())
 
-    # TEST TEMPORAIRE
-    # sera remplacé par Ticketmaster / TicketSwap
-
-    tickets = [
-        {
-            "source": "Ticketmaster VIP",
-            "section": "VIP",
-            "prix": 220,
-            "places": 1,
-            "url": "https://www.ticketmaster.be/"
-        }
-    ]
+    tickets = recuperer_vip()
 
     for ticket in tickets:
         resultat = traiter_ticket(ticket)
