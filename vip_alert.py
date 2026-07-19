@@ -40,7 +40,7 @@ Lien :
 {VIP_LINK}
 """
 
-    envoyer_message(message)
+    envoyer_telegram(message)
 
     return "Alerte envoyée"
 
