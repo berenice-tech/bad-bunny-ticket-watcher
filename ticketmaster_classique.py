@@ -38,13 +38,18 @@ def recuperer_classique():
         "locale": "fr-be"
     }
 
+    print(
+        "Clé API présente :",
+        bool(API_KEY)
+    )
 
     response = requests.get(
-    url,
-    params=params,
-    headers=HEADERS,
-    timeout=10
+        url,
+        params=params,
+        headers=HEADERS,
+        timeout=10
     )
+        
 
     if response.status_code != 200:
 
