@@ -1,5 +1,5 @@
 from watcher import traiter_ticket
-from ticketmaster_vip import recuperer_vip
+from sources import recuperer_tous_les_tickets
 from vip_scoring import score_vip
 from datetime import datetime
 
@@ -9,7 +9,7 @@ def lancer_surveillance():
     print("🎟️ Bad Bunny Ticket Watcher démarré")
     print("Vérification :", datetime.now())
 
-    tickets = recuperer_vip()
+    tickets = recuperer_tous_les_tickets()
 
     print("Billets trouvés :", len(tickets))
 
