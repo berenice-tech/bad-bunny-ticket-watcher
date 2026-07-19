@@ -13,7 +13,17 @@ HEADERS = {
 
 TICKETSWAP_URL = "https://www.ticketswap.com/"
 
+def tester_connexion():
 
+    response = requests.get(
+        TICKETSWAP_URL,
+        headers=HEADERS,
+        timeout=10
+    )
+
+    print("TicketSwap status :", response.status_code)
+    print("Taille page :", len(response.text))
+    
 def recuperer_ticketswap():
 
     return [
