@@ -10,8 +10,11 @@ def envoyer_message(message):
         "chat_id": CHAT_ID,
         "text": message
     }
-    requests.post(url, data=data)
+
+    response = requests.post(url, data=data)
+
+    print("Réponse Telegram :")
+    print(response.text)
 
 if __name__ == "__main__":
     envoyer_message("🎟️ Bad Bunny Ticket Watcher connecté !")
-    print("Message Telegram envoyé")
