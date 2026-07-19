@@ -2,9 +2,10 @@ from vip_scoring import score_vip
 
 
 tests = [
-    ("Ultimate VIP", 548.58),
-    ("Early Entry", 258.58),
-    ("VIP intéressant", 220),
+    ("Ultimate Bad Bunny VIP Lounge Experience", 548.58),
+    ("Early Entry Package", 258.58),
+    ("Early Entry Package", 220),
+    ("Package inconnu", 100),
 ]
 
 
