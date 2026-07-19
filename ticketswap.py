@@ -11,8 +11,10 @@ HEADERS = {
 }
 
 
-TICKETSWAP_URL = "https://www.ticketswap.com/"
-
+TICKETSWAP_URL = (
+    "https://www.ticketswap.com/concert-tickets/"
+    "bad-bunny-brussels-stade-roi-baudouin-koning-boudewijnstadion-2026-07-22-TLrKbppcDpCXt8cEGjw1bC"
+)
 def tester_connexion():
 
     response = requests.get(
