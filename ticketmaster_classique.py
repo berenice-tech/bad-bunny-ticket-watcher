@@ -1,29 +1,76 @@
-CLASSIQUE_URL = "https://www.ticketmaster.be/event/bad-bunny-debi-tirar-mas-fotos-world-tour-tickets/1117180915?language=fr-be"
+import requests
+import os
 
 
-SECTIONS_PRIORITAIRES = [
-    "3D",
-    "3C",
-    "3A",
-    "Golden"
-]
+API_KEY = os.environ.get("TICKETMASTER_API_KEY")
+
+EVENT_ID = "Z698xZG2Z16v79kZ04"
+
+CLASSIQUE_URL = (
+    "https://www.ticketmaster.be/event/"
+    "bad-bunny-debi-tirar-mas-fotos-world-tour-tickets/1117180915"
+    "?language=fr-be"
+)
 
 
 def recuperer_classique():
 
     billets = []
 
-    # Version initiale de connexion du flux classique
-    # Les vraies disponibilités seront branchées ensuite
+    url = (
+        f"https://app.ticketmaster.com/"
+        f"discovery/v2/events/{EVENT_ID}"
+    )
+
+    params = {
+        "apikey": API_KEY,
+        "locale": "fr-be"
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code != 200:
+
+        print(
+            "Erreur Ticketmaster API :",
+            response.status_code
+        )
+
+        return billets
+
+
+    evenement = response.json()
+
+
+    # Vérifie si Ticketmaster indique une vente active
+
+    dates = evenement.get("dates", {})
+
+    statut = dates.get(
+        "status",
+        {}
+    ).get(
+        "code"
+    )
+
+
+    if statut != "onsale":
+
+        return billets
+
+
+    # L'API Discovery ne donne pas toujours les sièges/prix.
+    # On renvoie donc seulement l'événement actif pour validation.
 
     billets.append(
         {
             "source": "Ticketmaster",
-            "section": "3D",
-            "prix": 145,
+            "section": "Disponible",
+            "prix": 0,
             "places": 1,
             "url": CLASSIQUE_URL
         }
     )
+
 
     return billets
