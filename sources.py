@@ -1,6 +1,6 @@
 from ticketmaster_vip import recuperer_vip
 from ticketmaster_classique import recuperer_classique
-
+from ticketswap import recuperer_ticketswap
 
 def recuperer_tous_les_tickets():
 
@@ -8,5 +8,7 @@ def recuperer_tous_les_tickets():
 
     tickets.extend(recuperer_vip())
     tickets.extend(recuperer_classique())
+    tickets.extend(recuperer_ticketswap())
 
     return tickets
+
