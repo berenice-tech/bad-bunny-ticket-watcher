@@ -18,15 +18,7 @@ message = creer_message(
     url=ticket.get("url", "")
 )
     
-    message = creer_message(
-        niveau=ticket["niveau"],
-        source=ticket["source"],
-        section=ticket.get("section", ""),
-        prix=ticket["prix"],
-        places=ticket.get("places", 1),
-        score=ticket["score"],
-        url=ticket.get("url", "")
-    )
+
 
     resultat = envoyer_telegram(message)
 
