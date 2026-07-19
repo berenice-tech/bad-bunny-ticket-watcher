@@ -38,7 +38,13 @@ def recuperer_classique():
         "locale": "fr-be"
     }
 
-    response = requests.get(url, params=params)
+
+    response = requests.get(
+    url,
+    params=params,
+    headers=HEADERS,
+    timeout=10
+    )
 
     if response.status_code != 200:
 
