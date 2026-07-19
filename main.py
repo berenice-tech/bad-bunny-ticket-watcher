@@ -1,3 +1,5 @@
+import random
+import time
 from watcher import traiter_ticket
 from sources import recuperer_tous_les_tickets
 from vip_scoring import score_vip
@@ -8,6 +10,11 @@ from datetime import datetime
 def lancer_surveillance():
 
     print("🎟️ Bad Bunny Ticket Watcher démarré")
+    delai = random.randint(5, 40)
+
+    print(f"Attente aléatoire : {delai} secondes...")
+
+    time.sleep(delai)
     print("Vérification :", datetime.now())
 
     tickets = recuperer_tous_les_tickets()
