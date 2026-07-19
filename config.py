@@ -38,6 +38,20 @@ TICKETMASTER_VIP_EVENT_ID = "Z698xZG2Z16vGyuk_A"
 # Règle spéciale VIP
 VIP_MAX_PRICE = 250
 
+# Identifiants Ticketmaster
+TICKETMASTER_EVENT_ID = "Z698xZG2Z16v79kZ04"
+TICKETMASTER_VIP_EVENT_ID = "Z698xZG2Z16vGyuk_A"
+
+# Règle spéciale VIP
+VIP_MAX_PRICE = 250
+
+# Packages VIP surveillés
+VIP_PACKAGES_INTERESSANTS = [
+    "Early Entry Package",
+    "Silver Premium Ticket Package",
+    "Gold Premium Ticket Package"
+]
+
 TICKETMASTER_URL = (
     "https://www.ticketmaster.be/"
     "event/bad-bunny-debi-tirar-mas-fotos-world-tour-tickets/1117180915"
