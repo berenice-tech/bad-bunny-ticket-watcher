@@ -54,3 +54,10 @@ def recuperer_ticketswap():
 
 
     return []
+    
+    if __name__ == "__main__":
+
+    resultat = recuperer_ticketswap()
+
+    print("Résultat TicketSwap :")
+    print(resultat)
