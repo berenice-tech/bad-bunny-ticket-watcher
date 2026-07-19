@@ -15,27 +15,42 @@ TICKETSWAP_URL = (
     "https://www.ticketswap.com/concert-tickets/"
     "bad-bunny-brussels-stade-roi-baudouin-koning-boudewijnstadion-2026-07-22-TLrKbppcDpCXt8cEGjw1bC"
 )
-def tester_connexion():
 
-    response = requests.get(
-        TICKETSWAP_URL,
-        headers=HEADERS,
-        timeout=10
-    )
 
-    print("TicketSwap status :", response.status_code)
-    print("Taille page :", len(response.text))
-    
 def recuperer_ticketswap():
 
-    return [
-        {
-            "source": "TicketSwap",
-            "section": "3D",
-            "prix": 180,
-            "places": 1,
-            "url": "https://www.ticketswap.com/"
-        }
-    ]
-if __name__ == "__main__":
-    tester_connexion()
+    try:
+
+        response = requests.get(
+            TICKETSWAP_URL,
+            headers=HEADERS,
+            timeout=10
+        )
+
+        if response.status_code != 200:
+            print("TicketSwap inaccessible :", response.status_code)
+            return []
+
+
+        contenu = response.text.lower()
+
+
+        if "available" in contenu or "billet" in contenu or "ticket" in contenu:
+
+            return [
+                {
+                    "source": "TicketSwap",
+                    "section": "Disponible",
+                    "prix": 0,
+                    "places": 1,
+                    "url": TICKETSWAP_URL
+                }
+            ]
+
+
+    except Exception as e:
+
+        print("Erreur TicketSwap :", e)
+
+
+    return []
