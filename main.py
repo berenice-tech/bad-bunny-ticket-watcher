@@ -15,29 +15,33 @@ def lancer_surveillance():
 
     for ticket in tickets:
 
-    if ticket["source"] == "Ticketmaster VIP":
+        if ticket["source"] == "Ticketmaster VIP":
 
-        analyse = score_vip(
-            ticket["package"],
-            ticket["prix"]
-        )
+            analyse = score_vip(
+                ticket["package"],
+                ticket["prix"]
+            )
 
-    else:
+        else:
 
-        analyse = {
-            "niveau": "🟢 PRIORITÉ",
-            "score": 15
-        }
+            analyse = {
+                "niveau": "🟢 PRIORITÉ",
+                "score": 15,
+                "raison": "Billet non VIP détecté"
+            }
 
-    ticket["score"] = analyse["score"]
-    ticket["niveau"] = analyse["niveau"]
+        ticket["score"] = analyse["score"]
+        ticket["niveau"] = analyse["niveau"]
 
-    print(ticket)
-    print(analyse)
+        print(ticket)
+        print(analyse)
 
-    if ticket["score"] > 0:
+        if ticket["score"] > 0:
 
-        resultat = traiter_ticket(ticket)
+            resultat = traiter_ticket(ticket)
 
-        print(resultat)
-        
+            print(resultat)
+
+
+if __name__ == "__main__":
+    lancer_surveillance()
