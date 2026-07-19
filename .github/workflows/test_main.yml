@@ -1,4 +1,4 @@
-name: Test Main Bot
+name: Test Main
 
 on:
   workflow_dispatch:
@@ -19,9 +19,8 @@ jobs:
       - name: Installer dépendances
         run: pip install requests
 
-      - name: Tester le watcher
+      - name: Lancer main
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
         run: python main.py
