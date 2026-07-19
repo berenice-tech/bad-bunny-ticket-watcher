@@ -9,7 +9,10 @@ def lancer_surveillance():
     print("🎟️ Bad Bunny Ticket Watcher démarré")
     print("Vérification :", datetime.now())
 
-    tickets = recuperer_vip()
+    tickets = []
+
+    tickets.extend(recuperer_vip())
+    tickets.extend(recuperer_classique())
 
     print("Billets trouvés :", len(tickets))
 
