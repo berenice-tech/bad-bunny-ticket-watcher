@@ -37,12 +37,30 @@ def lancer_surveillance():
         print(ticket)
         print(analyse)
 
+        ticket_id = (
+            ticket["source"]
+            + "-"
+            + ticket.get("section", "")
+            + "-"
+            + str(ticket["prix"])
+            + "-"
+            + ticket.get("package", "")
+        )
+
+        if billet_deja_vu(ticket_id):
+
+            print("⏭️ Déjà envoyé :", ticket_id)
+            continue
+
         if ticket["score"] > 0:
 
             resultat = traiter_ticket(ticket)
+
+            enregistrer_billet(ticket_id)
 
             print(resultat)
 
 
 if __name__ == "__main__":
+
     lancer_surveillance()
