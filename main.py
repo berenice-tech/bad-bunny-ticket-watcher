@@ -1,6 +1,7 @@
 from watcher import traiter_ticket
 from sources import recuperer_tous_les_tickets
 from vip_scoring import score_vip
+from memory import billet_deja_vu, enregistrer_billet
 from datetime import datetime
 
 
