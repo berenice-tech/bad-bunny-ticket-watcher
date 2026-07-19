@@ -1,0 +1,25 @@
+name: Test TicketSwap
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Télécharger le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer dépendances
+        run: |
+          pip install requests
+
+      - name: Tester TicketSwap
+        run: |
+          python ticketswap.py
