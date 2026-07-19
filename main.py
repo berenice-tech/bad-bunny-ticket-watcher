@@ -1,5 +1,6 @@
 from watcher import traiter_ticket
-from ticketmaster_vip_live import recuperer_vip
+from ticketmaster_vip import recuperer_vip
+from vip_scoring import scorer_vip
 from datetime import datetime
 
 
@@ -10,21 +11,25 @@ def lancer_surveillance():
 
     tickets = recuperer_vip()
 
+    print("Billets trouvés :", len(tickets))
 
+    for ticket in tickets:
 
-for ticket in tickets:
+        analyse = scorer_vip(
+            ticket["package"],
+            ticket["prix"]
+        )
 
-    analyse = scorer_vip(
-        ticket["package"],
-        ticket["prix"]
-    )
+        ticket["score"] = analyse["score"]
+        ticket["niveau"] = analyse["niveau"]
 
-    ticket["score"] = analyse["score"]
-    ticket["niveau"] = analyse["niveau"]
+        print(ticket)
+        print(analyse)
 
-    if ticket["score"] > 0:
-        resultat = traiter_ticket(ticket)
-        print(resultat)
+        if ticket["score"] > 0:
+            resultat = traiter_ticket(ticket)
+            print(resultat)
+
 
 if __name__ == "__main__":
     lancer_surveillance()
