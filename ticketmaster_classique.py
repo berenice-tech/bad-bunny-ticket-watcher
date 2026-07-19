@@ -96,3 +96,10 @@ def recuperer_classique():
 
 
     return billets
+
+if __name__ == "__main__":
+
+    resultats = recuperer_classique()
+
+    print("Résultat Ticketmaster classique :")
+    print(resultats)
