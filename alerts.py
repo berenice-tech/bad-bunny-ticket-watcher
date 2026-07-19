@@ -15,6 +15,8 @@ def creer_message(
 💶 Prix : {prix} €
 
 ⭐ Score : {score}
+🔗 Lien :
+{url}
 
 ➡️ Vérifie rapidement !
 """
