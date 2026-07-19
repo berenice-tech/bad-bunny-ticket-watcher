@@ -1,5 +1,5 @@
 from vip_scoring import score_vip
-from notifier import envoyer_message
+from notifier import envoyer_telegram
 from memory import billet_deja_vu
 
 
