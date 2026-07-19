@@ -4,9 +4,11 @@ def creer_message(
     section,
     prix,
     places,
-    score
+    score,
+    url=""
 ):
-    return f"""
+
+    message = f"""
 {niveau} — BAD BUNNY BRUXELLES
 
 🎟 Source : {source}
@@ -15,8 +17,11 @@ def creer_message(
 💶 Prix : {prix} €
 
 ⭐ Score : {score}
+
 🔗 Lien :
 {url}
 
 ➡️ Vérifie rapidement !
 """
+
+    return message.strip()
