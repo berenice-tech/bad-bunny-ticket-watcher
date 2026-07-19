@@ -1,24 +1,20 @@
-from memory import (
-    billet_deja_vu,
-    enregistrer_billet
-)
+name: Test Memory
 
+on:
+  workflow_dispatch:
 
-ticket = "TM-3D-R15-145"
+jobs:
+  test:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
 
-print("Premier passage :")
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
 
-if billet_deja_vu(ticket):
-    print("❌ Déjà connu")
-else:
-    print("✅ Nouveau billet")
-    enregistrer_billet(ticket)
-
-
-print("\nDeuxième passage :")
-
-if billet_deja_vu(ticket):
-    print("✅ Doublon détecté")
-else:
-    print("❌ Erreur mémoire")
+      - name: Tester la mémoire
+        run: python test_memory.py
