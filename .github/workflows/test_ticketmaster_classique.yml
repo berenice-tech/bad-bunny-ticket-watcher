@@ -1,0 +1,27 @@
+name: Test Ticketmaster Classique
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-ticketmaster:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Télécharger le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer dépendances
+        run: |
+          pip install requests
+
+      - name: Tester Ticketmaster classique
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+        run: |
+          python ticketmaster_classique.py
