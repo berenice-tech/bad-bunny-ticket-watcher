@@ -2,6 +2,17 @@ import requests
 import os
 
 
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 "
+        "(KHTML, like Gecko) "
+        "Chrome/126.0 Safari/537.36"
+    )
+}
+
+
+
 API_KEY = os.environ.get("TICKETMASTER_API_KEY")
 
 EVENT_ID = "Z698xZG2Z16v79kZ04"
