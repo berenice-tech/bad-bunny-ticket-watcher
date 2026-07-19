@@ -35,3 +35,5 @@ def recuperer_ticketswap():
             "url": "https://www.ticketswap.com/"
         }
     ]
+if __name__ == "__main__":
+    tester_connexion()
