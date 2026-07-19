@@ -17,6 +17,20 @@ def lancer_surveillance():
     print("Billets trouvés :", len(tickets))
 
     for ticket in tickets:
+        if ticket["source"] == "Ticketmaster":
+    from scoring import score_ticket
+
+    analyse = score_ticket(
+        ticket["source"],
+        ticket["section"],
+        ticket["prix"]
+    )
+
+else:
+    analyse = {
+        "niveau": ticket.get("niveau"),
+        "score": ticket.get("score")
+    }
 
         analyse = score_vip(
             ticket["package"],
