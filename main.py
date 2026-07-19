@@ -1,6 +1,6 @@
 from watcher import traiter_ticket
 from ticketmaster_vip import recuperer_vip
-from vip_scoring import scorer_vip
+from vip_scoring import score_vip
 from datetime import datetime
 
 
@@ -15,7 +15,7 @@ def lancer_surveillance():
 
     for ticket in tickets:
 
-        analyse = scorer_vip(
+        analyse = score_vip(
             ticket["package"],
             ticket["prix"]
         )
